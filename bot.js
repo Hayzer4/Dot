@@ -38,15 +38,10 @@ bot.on('message', function(from, to, text, message) {
     if (to.indexOf('#') > -1) {
       sendTo = to;
     }
-	if (from === 'SeniorDaniel' && count % 57 == 0){
-		count++;
-		var faust = ['https://en.wikipedia.org/wiki/Deal_with_the_Devil', "All words, thoughts and opinions expressed by Dan Morrison™ are sole property of Lockheed Martin", "https://open.spotify.com/track/57CXhuTXrLqxXKgLC7UA1s"];
-		bot.say(sendTo, helper.choose(faust));
-	}
 	var split = text.split(' ');
 	var resp = null;
-	if (split[0].charAt(0) === '.'){
-		var command = split[0].split('.')[1];
+	if (split[0].charAt(0) === '!'){
+		var command = split[0].split('!')[1];
 		try{
 			resp = commands[command](bot, from, to, text, split, sendTo, userList);
 			previousCommand = [command];
