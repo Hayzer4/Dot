@@ -1,12 +1,14 @@
 'use strict';
-var hotload        = require("hotload");
+
+var hotload        = require('hotload');
 var helper         = hotload('../helper');
 var user           = hotload('../modules/user').actions;
 var featureRequest = hotload('../modules/featureRequest').actions;
 var bugReport      = hotload('../modules/bugReport').actions;
 var google         = hotload('../modules/google').actions;
 var wikipedia      = hotload('../modules/wikipedia').actions;
-var wolf           = hotload('../modules/wolframAlpha').actions;
+
+//var wolf           = hotload('../modules/wolframAlpha').actions;
 var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
 var danger         = hotload('./dangerzone');
@@ -15,83 +17,98 @@ var colour         = hotload('../colour');
 var response       = hotload('../responses').actions;
 var config = require('../setup/config');
 
-(function(commands){
-	commands.hello = function(){
-		return 'I don\'t like your face';
-	};
+(function (commands) {
+  commands.hello = function () {
+    return 'I don\'t like your face';
+  };
 
-	commands.c = function(bot, from, to, text, split) {
-        
-	    return eval(split.splice(1).join(""));
-	}
+  commands.c = function (bot, from, to, text, split) {
+    return eval(split.splice(1).join(''));
+  };
 
-	commands.test = function(){
-		var text = ['1', '-1', 'icles', colour.dance + ' tests'];
-		return helper.choose(text);
-	};
+  commands.test = function () {
+    var text = ['1', '-1', 'icles', colour.dance + ' tests'];
+    return helper.choose(text);
+  };
 
-	commands.join = function(bot, from, to, text, split){
-		bot.join(split[1]);
-	};
+  commands.join = function (bot, from, to, text, split) {
+    bot.join(split[1]);
+  };
 
-	commands.part = function(bot, from, to, text, split){
-		if (config.admin.indexOf(from) > -1){
-			bot.part(split[1], '...');
-		}
-	};
+  commands.part = function (bot, from, to, text, split) {
+    if (config.admin.indexOf(from) > -1) {
+      bot.part(split[1], '...');
+    }
+  };
 
-	commands.cotw = function(bot, from, to, text, split) {
-	    var joint = split.length > 1 ? split.splice(1).join(" ") : "Rainbow";
-	    var response = "";
-	    var colArr = [colour.red, colour.orange, colour.yellow, colour.green, colour.blue, colour.purple, colour.violet];
-	    for(var i = 0; i < joint.length; i++) {
-	        response += colArr[i % 7] + joint[i];
-	    }
-	    return response;
-	}
+  commands.wide = function (bot, from, to, text, split) {
+    var response = '';
+    for (var i = 0; i < split[1].length; i++) {
+      response += String.fromCharCode(0xFF20 + split[i].charCodeAt(0));
+    }
 
-	commands.list = function(bot, from) {
-	    bot.emit('response', Object.keys(commands).join(', '), from);
-	}
+    return response;
+  };
+
+  commands.cotw = function (bot, from, to, text, split) {
+    var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
+    var response = '';
+    var colArr = [colour.red, colour.orange, colour.yellow, colour.green,
+      colour.blue, colour.purple, colour.violet];
+    for (var i = 0; i < joint.length; i++) {
+      response += colArr[i % 7] + joint[i];
+    }
+
+    return response;
+  };
+
+  commands.hayzer = function () {
+    return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
+  };
+
+  commands.list = function (bot, from) {
+    bot.emit('response', Object.keys(commands).join(', '), from);
+    return (Object.keys(commands).join(', '), '@' + from);
+  };
 
 	/* Module Commands */
-	commands.g           = google.query;
-	commands.gd          = google.queryDesc;
-	commands.wik         = wikipedia.query;
-	commands.wa          = wolf.query;
-	commands.ud          = urban.query;
-	commands.ub          = urban.battle;
-	commands.urban_reset = urban.reset;
+  commands.g           = google.query;
+  commands.gd          = google.queryDesc;
+  commands.wik         = wikipedia.query;
+//	commands.wa          = wolf.query;
+  commands.ud          = urban.query;
+  commands.ub          = urban.battle;
+  commands.urban_reset = urban.reset;
 
 	/* Core Commands */
-	commands.karma       = user.karmaQuery;
-	commands.reasons     = user.reasons;
-	commands.leaderboard = user.leaderboard;
-	commands.loserboard  = user.loserboard;
-	commands.ben         = user.ben;
-	commands.mal         = user.mal;
-	commands.store       = user.store;
-	commands.heed        = user.heed;
-	commands.notHeed     = user.notHeed;
-	commands.T           = user.T;
-	commands.Ty          = user.Ty;
-	commands.noT         = user.noT;
-	commands.wfh         = user.wfh;
-	commands.notWfh      = user.notWfh;
-	commands.set         = response.store;
-	commands.addKey      = response.addKey;
-	commands.addResponse = response.addResponse;
-	commands.help        = help.get;
-	commands.addHelp     = help.store;
+//	commands.karma       = user.karmaQuery;
+//	commands.reasons     = user.reasons;
+//	commands.leaderboard = user.leaderboard;
+//	commands.loserboard  = user.loserboard;
+//	commands.ben         = user.ben;
+//	commands.mal         = user.mal;
+//	commands.store       = user.store;
+//	commands.heed        = user.heed;
+//	commands.notHeed     = user.notHeed;
+//	commands.T           = user.T;
+//	commands.Ty          = user.Ty;
+//	commands.noT         = user.noT;
+//	commands.wfh         = user.wfh;
+//	commands.notWfh      = user.notWfh;
+//	commands.set         = response.store;
+//	commands.addKey      = response.addKey;
+//	commands.addResponse = response.addResponse;
+//	commands.help        = help.get;
+//	commands.addHelp     = help.store;
 
 	/* Stand Alones */
-	commands.dangerzone   = danger.zone;
-	commands.roulette     = roulette.trigger;
-	commands.rouletteSpin = roulette.spin;
+//	commands.dangerzone   = danger.zone;
+//	commands.roulette     = roulette.trigger;
+//	commands.rouletteSpin = roulette.spin;
 
 	/* Maintenance Commands */
-	commands.featureRequest  = featureRequest.store;
-	commands.featureRequests = featureRequest.url;
-	commands.bugReport       = bugReport.store;
+//	commands.featureRequest  = featureRequest.store;
+//	commands.featureRequests = featureRequest.url;
+//	commands.bugReport       = bugReport.store;
 
 })(module.exports);
