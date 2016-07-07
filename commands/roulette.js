@@ -5,8 +5,8 @@ var colour = require('../colour');
 (function(actions){
   var chamber = [1,0,0,0,0,0];
 
-  var click = colour.bold + "*Click*";
-  var bang = colour.red + colour.bold + "*BANG!*";
+  var click = "*Click*";
+  var bang = "*BANG!*";
 
   actions.trigger = function(){
 
@@ -19,7 +19,7 @@ var colour = require('../colour');
     }
 
   };
-    
+
   actions.spin = function() {
       return helper.choose([1, 0, 0, 0, 0, 0]) ? bang : click;
   };
