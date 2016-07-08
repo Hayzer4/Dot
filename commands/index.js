@@ -13,6 +13,7 @@ var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
 var danger         = hotload('./dangerzone');
 var roulette       = hotload('./roulette');
+var eightball       = hotload('./8ball');
 var colour         = hotload('../colour');
 var response       = hotload('../responses').actions;
 var config = require('../setup/config');
@@ -73,6 +74,7 @@ var config = require('../setup/config');
   };
 
   commands.wide = function (bot, from, to, text, split) {
+<<<<<<< HEAD
     var response;
     var mong = text.split('');
     for (var i = 6; i < text.length; i++) {
@@ -81,11 +83,25 @@ var config = require('../setup/config');
       } else {
         response += String.fromCharCode(0xFEE0 + text.charCodeAt(i));
       }
+=======
+    var array = split.splice(1);
+    if (!(/^[a-z0-9]+$/i.test(array))) {
+      return 'Can only widen alphanumeric characters, no spaces or special chars pls';
+    };
+
+    var response = '';
+    for (var i = 0; i < array.length; i++) {
+      for (var j = 0; j < array[i].length; j++) {
+        response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
+        response += ' ';
+      };
+>>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
     }
 
     return response;
   };
 
+<<<<<<< HEAD
   // commands.cotw = function (bot, from, to, text, split) {
   //   var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
   //   var response = '';
@@ -97,14 +113,28 @@ var config = require('../setup/config');
   //
   //   return response;
   // };
+=======
+  commands.playlist = function () {
+    return 'here is my shitty youtube playlist, it\'s bad https://www.youtube.com/watch?v=8EzfBYFU8Q0&list=PLgi4Oy1KF4CNdVYAFKUOe0mAriE8_jWgS';
+  };
+
+  commands.twitter = function () {
+    return 'Yo check out dese hot tweets https://www.twitter.com/SmiteHayzer';
+  };
+
+  commands.smite = function () {
+    return 'You can get Smite at https://www.smitegame.com';
+  };
+>>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
 
   commands.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
   };
 
-  commands.list = function (bot, from) {
+  commands.list = function (bot, from, to, text, split) {
     bot.emit('response', Object.keys(commands).join(', '), from);
-    return (Object.keys(commands).join(', '), '@' + from);
+
+    return ('https://github.com/Hayzer4/Dot/blob/master/README.md#commands');
   };
 
 	/* Module Commands */
@@ -138,9 +168,16 @@ var config = require('../setup/config');
 //	commands.addHelp     = help.store;
 
 	/* Stand Alones */
+<<<<<<< HEAD
 commands.dangerzone   = danger.zone;
 commands.roulette     = roulette.trigger;
 commands.rouletteSpin = roulette.spin;
+=======
+//	commands.dangerzone   = danger.zone;
+	commands.roulette     = roulette.trigger;
+//	commands.rouletteSpin = roulette.spin;
+  commands.eightball        = eightball.trigger;
+>>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
 
 	/* Maintenance Commands */
 //	commands.featureRequest  = featureRequest.store;
