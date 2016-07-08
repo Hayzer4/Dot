@@ -43,21 +43,13 @@ var config = require('../setup/config');
   };
 
   commands.wide = function (bot, from, to, text, split) {
+    var array = split.splice(1);
     var response = '';
-    for (var i = 0; i < split[1].length; i++) {
-      response += String.fromCharCode(0xFF20 + split[i].charCodeAt(0));
-    }
-
-    return response;
-  };
-
-  commands.cotw = function (bot, from, to, text, split) {
-    var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
-    var response = '';
-    var colArr = [colour.red, colour.orange, colour.yellow, colour.green,
-      colour.blue, colour.purple, colour.violet];
-    for (var i = 0; i < joint.length; i++) {
-      response += colArr[i % 7] + joint[i];
+    for (var i = 0; i < array.length; i++) {
+      for (var j = 0; j < array[i].length; j++) {
+        response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
+        response += ' ';
+      };
     }
 
     return response;
@@ -68,7 +60,7 @@ var config = require('../setup/config');
   };
 
   commands.list = function (bot, from) {
-    bot.emit('response', Object.keys(commands).join(', '), from);
+    // bot.emit('response', Object.keys(commands).join(', '), from);
     return (Object.keys(commands).join(', '), '@' + from);
   };
 
@@ -107,6 +99,7 @@ var config = require('../setup/config');
 	commands.roulette     = roulette.trigger;
 //	commands.rouletteSpin = roulette.spin;
   commands.eightball        = eightball.trigger;
+
 	/* Maintenance Commands */
 //	commands.featureRequest  = featureRequest.store;
 //	commands.featureRequests = featureRequest.url;
