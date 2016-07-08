@@ -14,6 +14,12 @@ No parameters required:
 
 !test
 
+!playlist
+
+!twitter
+
+!smite
+
 !eightball \<question text here\> - Get advice from the magic 8ball
 
 !roulette - Spin the wheel and see if you get banned

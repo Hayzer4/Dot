@@ -59,6 +59,18 @@ var config = require('../setup/config');
     return response;
   };
 
+  commands.playlist = function () {
+    return 'here is my shitty youtube playlist, it\'s bad https://www.youtube.com/watch?v=8EzfBYFU8Q0&list=PLgi4Oy1KF4CNdVYAFKUOe0mAriE8_jWgS';
+  };
+
+  commands.twitter = function () {
+    return 'Yo check out dese hot tweets https://www.twitter.com/SmiteHayzer';
+  };
+
+  commands.smite = function () {
+    return 'You can get Smite at https://www.smitegame.com';
+  };
+
   commands.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
   };
