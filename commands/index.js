@@ -44,6 +44,10 @@ var config = require('../setup/config');
 
   commands.wide = function (bot, from, to, text, split) {
     var array = split.splice(1);
+    if (!(/^[a-z0-9]+$/i.test(array))) {
+      return 'Can only widen alphanumeric characters, no spaces or special chars pls';
+    };
+
     var response = '';
     for (var i = 0; i < array.length; i++) {
       for (var j = 0; j < array[i].length; j++) {
@@ -59,9 +63,10 @@ var config = require('../setup/config');
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
   };
 
-  commands.list = function (bot, from) {
-    // bot.emit('response', Object.keys(commands).join(', '), from);
-    return (Object.keys(commands).join(', '), '@' + from);
+  commands.list = function (bot, from, to, text, split) {
+    bot.emit('response', Object.keys(commands).join(', '), from);
+
+    return ('https://github.com/Hayzer4/Dot/blob/master/README.md#commands');
   };
 
 	/* Module Commands */
