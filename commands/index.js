@@ -13,6 +13,7 @@ var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
 var danger         = hotload('./dangerzone');
 var roulette       = hotload('./roulette');
+var eightball       = hotload('./8ball');
 var colour         = hotload('../colour');
 var response       = hotload('../responses').actions;
 var config = require('../setup/config');
@@ -103,9 +104,9 @@ var config = require('../setup/config');
 
 	/* Stand Alones */
 //	commands.dangerzone   = danger.zone;
-//	commands.roulette     = roulette.trigger;
+	commands.roulette     = roulette.trigger;
 //	commands.rouletteSpin = roulette.spin;
-
+  commands.eightball        = eightball.trigger;
 	/* Maintenance Commands */
 //	commands.featureRequest  = featureRequest.store;
 //	commands.featureRequests = featureRequest.url;
