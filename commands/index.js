@@ -74,16 +74,6 @@ var config = require('../setup/config');
   };
 
   commands.wide = function (bot, from, to, text, split) {
-<<<<<<< HEAD
-    var response;
-    var mong = text.split('');
-    for (var i = 6; i < text.length; i++) {
-      if (mong[i] === ' ') {
-        response += ' ';
-      } else {
-        response += String.fromCharCode(0xFEE0 + text.charCodeAt(i));
-      }
-=======
     var array = split.splice(1);
     if (!(/^[a-z0-9]+$/i.test(array))) {
       return 'Can only widen alphanumeric characters, no spaces or special chars pls';
@@ -94,26 +84,12 @@ var config = require('../setup/config');
       for (var j = 0; j < array[i].length; j++) {
         response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
         response += ' ';
-      };
->>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
+      }
     }
 
     return response;
   };
 
-<<<<<<< HEAD
-  // commands.cotw = function (bot, from, to, text, split) {
-  //   var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
-  //   var response = '';
-  //   var colArr = [colour.red, colour.orange, colour.yellow, colour.green,
-  //     colour.blue, colour.purple, colour.violet];
-  //   for (var i = 0; i < joint.length; i++) {
-  //     response += colArr[i % 7] + joint[i];
-  //   }
-  //
-  //   return response;
-  // };
-=======
   commands.playlist = function () {
     return 'here is my shitty youtube playlist, it\'s bad https://www.youtube.com/watch?v=8EzfBYFU8Q0&list=PLgi4Oy1KF4CNdVYAFKUOe0mAriE8_jWgS';
   };
@@ -125,7 +101,6 @@ var config = require('../setup/config');
   commands.smite = function () {
     return 'You can get Smite at https://www.smitegame.com';
   };
->>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
 
   commands.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
@@ -168,16 +143,10 @@ var config = require('../setup/config');
 //	commands.addHelp     = help.store;
 
 	/* Stand Alones */
-<<<<<<< HEAD
-commands.dangerzone   = danger.zone;
-commands.roulette     = roulette.trigger;
-commands.rouletteSpin = roulette.spin;
-=======
 //	commands.dangerzone   = danger.zone;
 	commands.roulette     = roulette.trigger;
 //	commands.rouletteSpin = roulette.spin;
   commands.eightball        = eightball.trigger;
->>>>>>> 11f917a38c3493a6783365f79fd8bc6b0ee59cda
 
 	/* Maintenance Commands */
 //	commands.featureRequest  = featureRequest.store;
