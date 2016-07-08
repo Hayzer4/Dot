@@ -4,18 +4,31 @@
 
 List of current commands and their usage
 No parameters required:
+
 !hello
+
 !hayzer
+
 !cunt
+
 !test
+
 !eightball <question text here> - Get advice from the magic 8ball
+
 !roulette - Spin the wheel and see if you get banned
 
+
+
 Parameters required:
+
 !wide <text to be widened>
+
 !g <text to search on google>
+
 !ud <text to be searched on UD>
+
 !ub <start word> <goal word> - Use words from the definition of the first word lead to the goal word
+
 !urban_reset - End the current urban battle and reset the start and goal words
 
 ##FeatureRequest
