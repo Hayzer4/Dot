@@ -56,7 +56,7 @@ var helper = require('../../helper');
         }
 
       }else{
-        bot.emit('response', 'Left as an exercise for the reader.', sendTo);
+        bot.emit('response', 'No UD entry for that FeelsBadMan', sendTo);
       }
     });
 

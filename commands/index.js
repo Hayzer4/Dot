@@ -22,13 +22,44 @@ var config = require('../setup/config');
     return 'I don\'t like your face';
   };
 
+  commands.complain = function () {
+    return 'The opponent builds throwing dagger. "Oh my god dude, are you kidding me?" says Hayzer. The opponent hits an auto attack. "Seriously dude? How does he do that?" The opponent backs to base. "I can\'t handle this dude, I can\'t beat that." The opponent rotates. "This is some crazy draft RNG bullshit" says Hayzer.';
+  };
+
+  commands.donate = function () {
+    return 'Donate here https://www.twitchalerts.com/donate/hayzer4 FeelsGoodMan';
+  };
+
+  commands.kys = function () {
+    return 'no';
+  };
+
+  commands.roast = function () {
+    return 'stop streaming you so ugly .man your mother god dam :( you need friends';
+  };
+
+  commands.fdot = function () {
+    return 'Ｆ． ＳＨＡＧＧＥＤ ＭＹ ＤＡＤ';
+  };
+
+  commands.eccies = function () {
+    return 'What does eccies even mean?';
+  };
+
+  commands.cunt = function () {
+    return 'Ｃ Ｕ Ｎ Ｔ';
+  };
+
+  commands.godrequest = function () {
+    return 'Go fuck yourself';
+  };
+
   commands.c = function (bot, from, to, text, split) {
     return eval(split.splice(1).join(''));
   };
 
   commands.test = function () {
-    var text = ['1', '-1', 'icles', colour.dance + ' tests'];
-    return helper.choose(text);
+    return 'this is a test';
   };
 
   commands.join = function (bot, from, to, text, split) {
@@ -42,25 +73,30 @@ var config = require('../setup/config');
   };
 
   commands.wide = function (bot, from, to, text, split) {
-    var response = '';
-    for (var i = 0; i < split[1].length; i++) {
-      response += String.fromCharCode(0xFF20 + split[i].charCodeAt(0));
+    var response;
+    var mong = text.split('');
+    for (var i = 6; i < text.length; i++) {
+      if (mong[i] === ' ') {
+        response += ' ';
+      } else {
+        response += String.fromCharCode(0xFEE0 + text.charCodeAt(i));
+      }
     }
 
     return response;
   };
 
-  commands.cotw = function (bot, from, to, text, split) {
-    var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
-    var response = '';
-    var colArr = [colour.red, colour.orange, colour.yellow, colour.green,
-      colour.blue, colour.purple, colour.violet];
-    for (var i = 0; i < joint.length; i++) {
-      response += colArr[i % 7] + joint[i];
-    }
-
-    return response;
-  };
+  // commands.cotw = function (bot, from, to, text, split) {
+  //   var joint = split.length > 1 ? split.splice(1).join(' ') : 'Rainbow';
+  //   var response = '';
+  //   var colArr = [colour.red, colour.orange, colour.yellow, colour.green,
+  //     colour.blue, colour.purple, colour.violet];
+  //   for (var i = 0; i < joint.length; i++) {
+  //     response += colArr[i % 7] + joint[i];
+  //   }
+  //
+  //   return response;
+  // };
 
   commands.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
@@ -80,7 +116,7 @@ var config = require('../setup/config');
   commands.ub          = urban.battle;
   commands.urban_reset = urban.reset;
 
-	/* Core Commands */
+	/* Core Commands *
 //	commands.karma       = user.karmaQuery;
 //	commands.reasons     = user.reasons;
 //	commands.leaderboard = user.leaderboard;
@@ -102,9 +138,9 @@ var config = require('../setup/config');
 //	commands.addHelp     = help.store;
 
 	/* Stand Alones */
-//	commands.dangerzone   = danger.zone;
-//	commands.roulette     = roulette.trigger;
-//	commands.rouletteSpin = roulette.spin;
+commands.dangerzone   = danger.zone;
+commands.roulette     = roulette.trigger;
+commands.rouletteSpin = roulette.spin;
 
 	/* Maintenance Commands */
 //	commands.featureRequest  = featureRequest.store;

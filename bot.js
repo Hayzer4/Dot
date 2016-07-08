@@ -28,7 +28,7 @@ bot.on('join', function(channel, who) {
 	if (who !== config.name){
 		//bot.say(channel, helper.choose(text) + who );
 	} else {
-		bot.say(channel, '...');
+		bot.say(channel, 'HeyGuys');
 	}
 });
 
@@ -53,6 +53,9 @@ bot.on('message', function(from, to, text, message) {
 	}
 	if(resp){
 		bot.say(sendTo, resp);
+		if (resp === '*BANG!*') {
+			bot.say(sendTo, '.timeout ' + from + ' 30');
+		}
 	}
 });
 
