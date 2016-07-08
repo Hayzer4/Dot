@@ -22,7 +22,7 @@ No parameters required:
 
 Parameters required:
 
-!wide \<text to be widened\>
+!wide \<text to be changed to full width\>
 
 !g \<text to search on google\>
 
