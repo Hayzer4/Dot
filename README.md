@@ -14,7 +14,7 @@ No parameters required:
 
 !test
 
-!eightball <question text here> - Get advice from the magic 8ball
+!eightball \<question text here\> - Get advice from the magic 8ball
 
 !roulette - Spin the wheel and see if you get banned
 
@@ -22,13 +22,13 @@ No parameters required:
 
 Parameters required:
 
-!wide <text to be widened>
+!wide \<text to be widened\>
 
-!g <text to search on google>
+!g \<text to search on google\>
 
-!ud <text to be searched on UD>
+!ud \<text to be searched on UD\>
 
-!ub <start word> <goal word> - Use words from the definition of the first word lead to the goal word
+!ub \<start word\> \<goal word\> - Use words from the definition of the first word lead to the goal word
 
 !urban_reset - End the current urban battle and reset the start and goal words
 
