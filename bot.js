@@ -18,63 +18,68 @@ server.listen(config.httpPort);
 var bot = new irc.Client(config.server, config.name, config);
 
 var userList = {};
-var previousMessage = [""];
-var previousCommand = [""];
+var previousMessage = [''];
+var previousCommand = [''];
 
 var count = 1;
 
-bot.on('join', function(channel, who) {
-	var text = ['Hey, ', 'Howdy, ', 'Hi, ', 'Greetings, '];
-	if (who !== config.name){
-		//bot.say(channel, helper.choose(text) + who );
-	} else {
-		bot.say(channel, '...');
-	}
+bot.on('join', function (channel, who) {
+  var text = ['Hey, ', 'Howdy, ', 'Hi, ', 'Greetings, '];
+  if (who !== config.name) {
+    //bot.say(channel, helper.choose(text) + who );
+  } else {
+    bot.say(channel, 'HeyGuys');
+  }
 });
 
-bot.on('message', function(from, to, text, message) {
-	console.log(message);
-	var sendTo = from;
-    if (to.indexOf('#') > -1) {
-      sendTo = to;
+bot.on('message', function (from, to, text, message) {
+  console.log(message);
+  var sendTo = from;
+  if (to.indexOf('#') > -1) {
+    sendTo = to;
+  };
+
+  var split = text.split(' ');
+  var resp = null;
+  if (split[0].charAt(0) === '!') {
+    var command = split[0].split('!')[1];
+    try {
+      resp = commands[command](bot, from, to, text, split, sendTo, userList);
+      previousCommand = [command];
+    } catch (err) {
+      resp = responses.parse(bot, from, split, sendTo);
     }
-	var split = text.split(' ');
-	var resp = null;
-	if (split[0].charAt(0) === '!'){
-		var command = split[0].split('!')[1];
-		try{
-			resp = commands[command](bot, from, to, text, split, sendTo, userList);
-			previousCommand = [command];
-		} catch(err){
-		    resp = responses.parse(bot, from, split, sendTo);
-		}
-	} else {
-		resp = responses.parse(bot, from, split, sendTo);
-	}
-	if(resp){
-		bot.say(sendTo, resp);
-	}
+  } else {
+    resp = responses.parse(bot, from, split, sendTo);
+  }
+
+  if (resp) {
+    bot.say(sendTo, resp);
+  }
 });
 
-bot.on('response', function(resp, sendTo) {
-    if(typeof resp === 'string') {
-        resp = [resp];
-    }
-	if (previousMessage[0] !== resp[0] || previousCommand[0] === "ud" || previousCommand[0] === "list"){
-		previousCommand[0] = "";
-		previousMessage[0] = resp[0];
-		resp.forEach(function(string) {
-			bot.say(sendTo, string);
-		});
-	};
+bot.on('response', function (resp, sendTo) {
+  if (typeof resp === 'string') {
+    resp = [resp];
+  }
+
+  if (previousMessage[0] !== resp[0]
+    || previousCommand[0] === 'ud'
+    || previousCommand[0] === 'list') {
+    previousCommand[0] = '';
+    previousMessage[0] = resp[0];
+    resp.forEach(function (string) {
+      bot.say(sendTo, string);
+    });
+  };
 });
 
-bot.on('names', function(channel, nicks) {
+bot.on('names', function (channel, nicks) {
     userList[channel] = nicks;
     console.log(userList);
     twitterStreams.query(bot);
-});
+  });
 
-bot.on('error', function(message) {
+bot.on('error', function (message) {
     console.log('error: ', message);
-});
+  });
