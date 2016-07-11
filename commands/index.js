@@ -11,7 +11,6 @@ var wikipedia      = hotload('../modules/wikipedia').actions;
 //var wolf           = hotload('../modules/wolframAlpha').actions;
 var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
-var danger         = hotload('./dangerzone');
 var roulette       = hotload('./roulette');
 var eightball       = hotload('./8ball');
 var colour         = hotload('../colour');
@@ -23,44 +22,13 @@ var config = require('../setup/config');
     return 'I don\'t like your face';
   };
 
-  commands.complain = function () {
-    return 'The opponent builds throwing dagger. "Oh my god dude, are you kidding me?" says Hayzer. The opponent hits an auto attack. "Seriously dude? How does he do that?" The opponent backs to base. "I can\'t handle this dude, I can\'t beat that." The opponent rotates. "This is some crazy draft RNG bullshit" says Hayzer.';
-  };
-
-  commands.donate = function () {
-    return 'Donate here https://www.twitchalerts.com/donate/hayzer4 FeelsGoodMan';
-  };
-
-  commands.kys = function () {
-    return 'no';
-  };
-
-  commands.roast = function () {
-    return 'stop streaming you so ugly .man your mother god dam :( you need friends';
-  };
-
-  commands.fdot = function () {
-    return 'Ｆ． ＳＨＡＧＧＥＤ ＭＹ ＤＡＤ';
-  };
-
-  commands.eccies = function () {
-    return 'What does eccies even mean?';
-  };
-
-  commands.cunt = function () {
-    return 'Ｃ Ｕ Ｎ Ｔ';
-  };
-
-  commands.godrequest = function () {
-    return 'Go fuck yourself';
-  };
-
   commands.c = function (bot, from, to, text, split) {
     return eval(split.splice(1).join(''));
   };
 
   commands.test = function () {
-    return 'this is a test';
+    var text = ['1', '-1', 'icles', colour.dance + ' tests'];
+    return helper.choose(text);
   };
 
   commands.join = function (bot, from, to, text, split) {
@@ -75,15 +43,20 @@ var config = require('../setup/config');
 
   commands.wide = function (bot, from, to, text, split) {
     var array = split.splice(1);
-    if (!(/^[a-z0-9]+$/i.test(array))) {
-      return 'Can only widen alphanumeric characters, no spaces or special chars pls';
-    };
 
     var response = '';
     for (var i = 0; i < array.length; i++) {
+      if (!(/^[A-Za-z\d\s]+$/.test(array[i]))) {
+        return 'Can only widen alphanumeric characters, no special chars pls';
+      };
+
       for (var j = 0; j < array[i].length; j++) {
-        response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
-        response += ' ';
+        if ((array[i]).charAt(j) == ' ') {
+          response += array[i].charAt(j);
+        } else {
+          response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
+        };
+
       }
     }
 
@@ -121,7 +94,7 @@ var config = require('../setup/config');
   commands.ub          = urban.battle;
   commands.urban_reset = urban.reset;
 
-	/* Core Commands *
+	/* Core Commands */
 //	commands.karma       = user.karmaQuery;
 //	commands.reasons     = user.reasons;
 //	commands.leaderboard = user.leaderboard;
