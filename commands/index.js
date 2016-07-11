@@ -11,7 +11,6 @@ var wikipedia      = hotload('../modules/wikipedia').actions;
 //var wolf           = hotload('../modules/wolframAlpha').actions;
 var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
-var danger         = hotload('./dangerzone');
 var roulette       = hotload('./roulette');
 var eightball       = hotload('./8ball');
 var colour         = hotload('../colour');
@@ -104,6 +103,10 @@ var config = require('../setup/config');
 
   commands.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
+  };
+
+  commands.suicide = function (bot, from, to, text, split) {
+    return ('.timeout ' + from + ' 60');
   };
 
   commands.list = function (bot, from, to, text, split) {

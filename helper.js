@@ -13,7 +13,7 @@ var Responses = require('./responses/model');
 
 	helper.response = function(key, callback) {
 	    Responses.findOne({ key: key }).exec(function(err, result){
-	        callback(err, helper.choose(result.response));
+	        // callback(err, helper.choose(result.response));
 	    });
 	};
 
