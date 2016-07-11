@@ -51,13 +51,10 @@ var config = require('../setup/config');
       };
 
       for (var j = 0; j < array[i].length; j++) {
-        if ((array[i]).charAt(j) === ' ') {
-          response += array[i].charAt(j);
-        } else {
-          response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
-        };
-
+        response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
       }
+
+      response += ' ';
     }
 
     return response;
@@ -84,10 +81,11 @@ var config = require('../setup/config');
     return ('@' + from + ': The commands for this bot are: ' + Object.keys(commands).join(', '));
   };
 
-	/* Module Commands */
+  /* Module Commands */
   commands.g           = google.query;
   commands.gd          = google.queryDesc;
   commands.wik         = wikipedia.query;
+
   //	commands.wa          = wolf.query;
   commands.ud          = urban.query;
   commands.ub          = urban.battle;
@@ -118,7 +116,8 @@ var config = require('../setup/config');
   /* Stand Alones */
 
   //	commands.dangerzone   = danger.zone;
-	commands.roulette     = roulette.trigger;
+  commands.roulette     = roulette.trigger;
+
   //	commands.rouletteSpin = roulette.spin;
   commands.eightball        = eightball.trigger;
 
