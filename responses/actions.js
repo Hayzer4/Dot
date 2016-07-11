@@ -1,6 +1,5 @@
 'use strict';
 var Response = require('./model');
-
 (function (actions) {
           actions.store = function (bot, from, to, text, split, sendTo) {
             var response = null;

@@ -51,7 +51,7 @@ var config = require('../setup/config');
       };
 
       for (var j = 0; j < array[i].length; j++) {
-        if ((array[i]).charAt(j) == ' ') {
+        if ((array[i]).charAt(j) === ' ') {
           response += array[i].charAt(j);
         } else {
           response += String.fromCharCode(0xFEE0 + array[i].charCodeAt(j));
@@ -80,50 +80,52 @@ var config = require('../setup/config');
   };
 
   commands.list = function (bot, from, to, text, split) {
-    bot.emit('response', Object.keys(commands).join(', '), from);
 
-    return ('https://github.com/Hayzer4/Dot/blob/master/README.md#commands');
+    return ('@' + from + ': The commands for this bot are: ' + Object.keys(commands).join(', '));
   };
 
 	/* Module Commands */
   commands.g           = google.query;
   commands.gd          = google.queryDesc;
   commands.wik         = wikipedia.query;
-//	commands.wa          = wolf.query;
+  //	commands.wa          = wolf.query;
   commands.ud          = urban.query;
   commands.ub          = urban.battle;
   commands.urban_reset = urban.reset;
 
-	/* Core Commands */
-//	commands.karma       = user.karmaQuery;
-//	commands.reasons     = user.reasons;
-//	commands.leaderboard = user.leaderboard;
-//	commands.loserboard  = user.loserboard;
-//	commands.ben         = user.ben;
-//	commands.mal         = user.mal;
-//	commands.store       = user.store;
-//	commands.heed        = user.heed;
-//	commands.notHeed     = user.notHeed;
-//	commands.T           = user.T;
-//	commands.Ty          = user.Ty;
-//	commands.noT         = user.noT;
-//	commands.wfh         = user.wfh;
-//	commands.notWfh      = user.notWfh;
-//	commands.set         = response.store;
-//	commands.addKey      = response.addKey;
-//	commands.addResponse = response.addResponse;
-//	commands.help        = help.get;
-//	commands.addHelp     = help.store;
+  /* Core Commands */
 
-	/* Stand Alones */
-//	commands.dangerzone   = danger.zone;
+  //	commands.karma       = user.karmaQuery;
+  //	commands.reasons     = user.reasons;
+  //	commands.leaderboard = user.leaderboard;
+  //	commands.loserboard  = user.loserboard;
+  //	commands.ben         = user.ben;
+  //	commands.mal         = user.mal;
+  //	commands.store       = user.store;
+  //	commands.heed        = user.heed;
+  //	commands.notHeed     = user.notHeed;
+  //	commands.T           = user.T;
+  //	commands.Ty          = user.Ty;
+  //	commands.noT         = user.noT;
+  //	commands.wfh         = user.wfh;
+  //	commands.notWfh      = user.notWfh;
+  //	commands.set         = response.store;
+  //	commands.addKey      = response.addKey;
+  //	commands.addResponse = response.addResponse;
+  //	commands.help        = help.get;
+  //	commands.addHelp     = help.store;
+
+  /* Stand Alones */
+
+  //	commands.dangerzone   = danger.zone;
 	commands.roulette     = roulette.trigger;
-//	commands.rouletteSpin = roulette.spin;
+  //	commands.rouletteSpin = roulette.spin;
   commands.eightball        = eightball.trigger;
 
-	/* Maintenance Commands */
-//	commands.featureRequest  = featureRequest.store;
-//	commands.featureRequests = featureRequest.url;
-//	commands.bugReport       = bugReport.store;
+  /* Maintenance Commands */
+
+  //	commands.featureRequest  = featureRequest.store;
+  //	commands.featureRequests = featureRequest.url;
+  //	commands.bugReport       = bugReport.store;
 
 })(module.exports);
