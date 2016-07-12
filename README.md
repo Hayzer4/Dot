@@ -4,13 +4,11 @@
 
 List of current commands and their usage
 
-No parameters required:
+#No parameters required:
 
 !hello
 
 !hayzer
-
-!cunt
 
 !test
 
@@ -26,7 +24,9 @@ No parameters required:
 
 
 
-Parameters required:
+#Parameters required:
+
+!c \<stuff to evaluate\> - Does calculator things, give it a try
 
 !wide \<text to be changed to full width\>
 
@@ -68,7 +68,9 @@ Case insensitivity or retry with caps on first
 
 
 # Dot
-IRC Bot in Node with MongoDB
+IRC Bot in Node with MongoDB, changed to work specifically on Twitch.
+
+To run the bot you will need Node.js, MongoDB and all the dependencies for the bot which can be installed through NPM.
 
 #Example config
 Config lives in setup/config.json.
@@ -77,28 +79,28 @@ config.json is in the .gitignore file for this project.
 {
 
   "name": "Dot",
-  
+
 	"server": "irc.foonetic.net",
-	
+
 	"port": "1234"
-	
+
 	"httpPort": "2345"
-	
+
 	"password": "pa55", //oauth key will go here in the case of twitch logins
-	
+
 	"channels": ["#dottest"],
-	
+
 	"admin": ["Lightbot"],
-	
+
 	"debug": true
-	
+
 	// twitter stuff not really used currently
 	"twitter_consumer_key": "xxxxxxxxxxxxxxxxxxxxxxxxx",
-	
+
 	"twitter_consumer_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-	
+
 	"twitter_access_token_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-	
+
 	"twitter_access_token_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-	
+
  }
