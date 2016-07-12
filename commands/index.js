@@ -12,7 +12,8 @@ var wikipedia      = hotload('../modules/wikipedia').actions;
 var urban          = hotload('../modules/urban').actions;
 var help           = hotload('../modules/help').actions;
 var roulette       = hotload('./roulette');
-var eightball       = hotload('./8ball');
+var eightball      = hotload('./8ball');
+var randomemote    = hotload('./randomemote');
 var colour         = hotload('../colour');
 var response       = hotload('../responses').actions;
 var config = require('../setup/config');
@@ -40,6 +41,13 @@ var config = require('../setup/config');
       bot.part(split[1], '...');
     }
   };
+
+  // commands.gift = function (bot, from, to, text, split) {
+  //   var args = split.splice(1);
+  //   if (args.length != 2) {
+  //     return 'Format for gift command is !gift <name> <amount>'
+  //   } else if ()
+  // };
 
   commands.wide = function (bot, from, to, text, split) {
     var array = split.splice(1);
@@ -123,7 +131,8 @@ var config = require('../setup/config');
   commands.roulette     = roulette.trigger;
 
   //	commands.rouletteSpin = roulette.spin;
-  commands.eightball        = eightball.trigger;
+  commands.eightball    = eightball.trigger;
+  commands.randomemote  = randomemote.trigger;
 
   /* Maintenance Commands */
 

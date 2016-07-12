@@ -13,6 +13,7 @@ var setup          = require('./setup/express')(app, config.secret);
 var server         = require('http').createServer(app);
 var routes         = require('./routes')(app);
 var twitterStreams = require('./modules/twitterStreams/');
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 server.listen(config.httpPort);
 
 var bot = new irc.Client(config.server, config.name, config);
@@ -20,16 +21,12 @@ var bot = new irc.Client(config.server, config.name, config);
 var userList = {};
 var previousMessage = [''];
 var previousCommand = [''];
-
 var count = 1;
 
+console.log();
+
 bot.on('join', function (channel, who) {
-  var text = ['Hey, ', 'Howdy, ', 'Hi, ', 'Greetings, '];
-  if (who !== config.name) {
-    //bot.say(channel, helper.choose(text) + who );
-  } else {
-    bot.say(channel, 'HeyGuys');
-  }
+  bot.say(channel, 'HeyGuys');
 });
 
 bot.on('message', function (from, to, text, message) {
@@ -83,3 +80,25 @@ bot.on('names', function (channel, nicks) {
 bot.on('error', function (message) {
     console.log('error: ', message);
   });
+
+// function loadJSON(file, callback) {
+//   var xobj = new XMLHttpRequest();
+//   // xobj.overrideMimeType('application/json');
+//   xobj.open('GET', file, true);
+//   xobj.onreadystatechange = function () {
+//       if (xobj.readyState == 4 && xobj.status == "200") {
+//         callback(xobj.responseText);
+//       }
+//     };
+//
+//   xobj.send(null);
+// }
+//
+// function load() {
+//   loadJSON('global_emotes.json', function (response) {
+//     var actualJSON = JSON.parse(response);
+//     console.log(actualJSON);
+//     return actualJSON;
+//   });
+//
+//}
