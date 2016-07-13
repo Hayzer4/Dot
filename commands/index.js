@@ -15,16 +15,10 @@ var roulette       = hotload('./roulette');
 var eightball      = hotload('./8ball');
 var randomemote    = hotload('./randomemote');
 var response       = hotload('../responses').actions;
+var simplecommands = hotload('./simplecommands');
 var config = require('../setup/config');
 
 (function (commands) {
-  commands.hello = function () {
-    return 'I don\'t like your face';
-  };
-
-  commands.c = function (bot, from, to, text, split) {
-    return eval(split.splice(1).join(''));
-  };
 
   commands.test = function () {
     var text = ['1', '-1', 'icles', colour.dance + ' tests'];
@@ -48,34 +42,6 @@ var config = require('../setup/config');
   //   } else if ()
   // };
 
-  commands.roast = function () {
-    return 'stop streaming you so ugly .man your mother god dam :( you need friends';
-  };
-
-  commands.kys = function () {
-    return 'no';
-  };
-
-  commands.complain = function () {
-    return 'The opponent builds throwing dagger. "Oh my god dude, are you kidding me?" says Hayzer. The opponent hits an auto attack. "Seriously dude? How does he do that?" The opponent backs to base. "I can\'t handle this dude, I can\'t beat that." The opponent rotates. "This is some crazy draft RNG bullshit" says Hayzer.';
-  };
-
-  commands.fdot = function () {
-    return 'Ｆ． ＳＨＡＧＧＥＤ ＭＹ ＤＡＤ';
-  };
-
-  commands.eccies = function () {
-    return 'What does eccies even mean?';
-  };
-
-  commands.godrequest = function () {
-    return 'Go fuck yourself';
-  };
-
-  commands.donate = function () {
-    return 'Donate here https://www.twitchalerts.com/donate/hayzer4 FeelsGoodMan';
-  };
-
   commands.wide = function (bot, from, to, text, split) {
     var array = split.splice(1);
 
@@ -95,24 +61,7 @@ var config = require('../setup/config');
     return response;
   };
 
-  commands.playlist = function () {
-    return 'here is my shitty youtube playlist, it\'s bad https://www.youtube.com/watch?v=8EzfBYFU8Q0&list=PLgi4Oy1KF4CNdVYAFKUOe0mAriE8_jWgS';
-  };
-
-  commands.twitter = function () {
-    return 'Yo check out dese hot tweets https://www.twitter.com/SmiteHayzer';
-  };
-
-  commands.smite = function () {
-    return 'You can get Smite at https://www.smitegame.com';
-  };
-
-  commands.hayzer = function () {
-    return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
-  };
-
   commands.list = function (bot, from, to, text, split) {
-
     return ('@' + from + ': The commands for this bot are: ' + Object.keys(commands).join(', '));
   };
 
@@ -125,6 +74,21 @@ var config = require('../setup/config');
   commands.ud          = urban.query;
   commands.ub          = urban.battle;
   commands.urban_reset = urban.reset;
+
+  /* Basic Commands */
+  commands.hello       = simplecommands.hello;
+  commands.c       = simplecommands.c;
+  commands.hayzer       = simplecommands.hayzer;
+  commands.playlist       = simplecommands.playlist;
+  commands.twitter       = simplecommands.twitter;
+  commands.smite       = simplecommands.smite;
+  commands.roast       = simplecommands.roast;
+  commands.kys       = simplecommands.kys;
+  commands.complain       = simplecommands.complain;
+  commands.fdot       = simplecommands.fdot;
+  commands.eccies       = simplecommands.eccies;
+  commands.godrequest       = simplecommands.godrequest;
+  commands.donate       = simplecommands.donate;
 
   /* Core Commands */
 
