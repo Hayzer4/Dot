@@ -1,12 +1,12 @@
 'use strict';
 var Help = require('./model');
 
-(function(actions) {
-    actions.store = function(bot, from, to, text, split, sendTo) {
-        if(split.length === 1) {
-            return "You haven't supplied any help...";
+(function (actions) {
+    actions.store = function (bot, from, to, text, split, sendTo) {
+        if (split.length === 1) {
+          return "You haven't supplied any help...";
         }
-        
+
         var parse = split.splice(1).join(' ').split(' | ');
         var help = new Help({
             command: parse[0],

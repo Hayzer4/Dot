@@ -1,17 +1,16 @@
 'use strict';
 var helper = require('../helper');
-var colour = require('../colour');
 
-(function(actions){
-  var chamber = [1,0,0,0,0,0];
+(function (actions) {
+  var chamber = [1, 0, 0, 0, 0, 0];
 
-  var click = "*Click*";
-  var bang = "*BANG!*";
+  var click = '*Click*';
+  var bang = '*BANG!*';
 
-  actions.trigger = function(){
+  actions.trigger = function () {
 
-    if(helper.choose(chamber)){
-      chamber = [1,0,0,0,0,0];
+    if (helper.choose(chamber)) {
+      chamber = [1, 0, 0, 0, 0, 0];
       return bang;
     } else {
       chamber.pop();
@@ -20,7 +19,7 @@ var colour = require('../colour');
 
   };
 
-  actions.spin = function() {
-      return helper.choose([1, 0, 0, 0, 0, 0]) ? bang : click;
+  actions.spin = function () {
+    return helper.choose([1, 0, 0, 0, 0, 0]) ? bang : click;
   };
 })(module.exports);

@@ -4,9 +4,9 @@ var featureRequest = require('../modules/featureRequest').routes;
 var bugReport = require('../modules/bugReport').routes;
 var responses = require('../responses').routes;
 
-module.exports = function(routes){
-    routes.get('/', function(req, res) {
-        res.sendFile('C:\\Work\\Dot\\setup\\dot.jpg');
+module.exports = function (routes) {
+    routes.get('/', function (req, res) {
+      res.sendFile('C:\\Users\\paul.hay\\Documents\\Dot\\setup\\dot.jpg');
     });
 
     routes.get('/users', user.get);
