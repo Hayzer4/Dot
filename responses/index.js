@@ -5,15 +5,11 @@ var helper = require('../helper');
 
 (function (responses) {
     responses.parse = function (bot, from, split, sendTo) {
-        if (split[0] === '++') {
-          user.karmaInc(from, split, true);
-        } else if (split[0] === '--') {
-          if (split[1] == 'Dot') {
-            var fuck = helper.choose(['off', 'you', 'donut', 'shakespeare', 'linus', 'king', 'chainsaw', 'outside', 'madison', 'nugget', 'yoda', 'bus', 'shutup'])
-            bot.emit('response', 'https://foaas.com/' + fuck + '/' + from + '/Dot', sendTo);
-          }
-
-          user.karmaInc(from, split, false);
+        if (split[0] === '@hayzerbot'
+        || split[0] === '@hayzerbot,'
+        || split[0] === 'hayzerbot'
+        || split[0] === 'hayzerbot,') {
+          return 'Don\'t @ me son, you ain\'t shit';
         } else if (split[0] === 'Gimme' && (split[1] === 'a' || split[1] === 'an')) {
           return split.splice(2).join(' ');
         } else {
@@ -25,7 +21,7 @@ var helper = require('../helper');
               }
             });
 
-          Response.find({ 'key': { $in : regSplit } }).lean().exec(function(err, results) {
+          Response.find({ 'key': { $in : regSplit } }).lean().exec(function (err, results) {
               var match = {};
               if (results && fullKey(split.join(' '), results, match)) {
                 var resp = helper.choose(match.response);

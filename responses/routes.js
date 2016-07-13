@@ -7,4 +7,4 @@ var Responses = require('./model');
           res.send(err || results);
         });
       };
-})(module.exports);
+  })(module.exports);

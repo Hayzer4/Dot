@@ -77,18 +77,18 @@ var config = require('../setup/config');
 
   /* Basic Commands */
   commands.hello       = simplecommands.hello;
-  commands.c       = simplecommands.c;
-  commands.hayzer       = simplecommands.hayzer;
-  commands.playlist       = simplecommands.playlist;
-  commands.twitter       = simplecommands.twitter;
+  commands.c           = simplecommands.c;
+  commands.hayzer      = simplecommands.hayzer;
+  commands.playlist    = simplecommands.playlist;
+  commands.twitter     = simplecommands.twitter;
   commands.smite       = simplecommands.smite;
   commands.roast       = simplecommands.roast;
-  commands.kys       = simplecommands.kys;
-  commands.complain       = simplecommands.complain;
-  commands.fdot       = simplecommands.fdot;
-  commands.eccies       = simplecommands.eccies;
-  commands.godrequest       = simplecommands.godrequest;
-  commands.donate       = simplecommands.donate;
+  commands.kys         = simplecommands.kys;
+  commands.complain    = simplecommands.complain;
+  commands.fdot        = simplecommands.fdot;
+  commands.eccies      = simplecommands.eccies;
+  commands.godrequest  = simplecommands.godrequest;
+  commands.donate      = simplecommands.donate;
 
   /* Core Commands */
 
@@ -98,7 +98,7 @@ var config = require('../setup/config');
   //	commands.loserboard  = user.loserboard;
   //	commands.ben         = user.ben;
   //	commands.mal         = user.mal;
-  //	commands.store       = user.store;
+  //  commands.store       = user.store;
   //	commands.heed        = user.heed;
   //	commands.notHeed     = user.notHeed;
   //	commands.T           = user.T;
@@ -106,11 +106,11 @@ var config = require('../setup/config');
   //	commands.noT         = user.noT;
   //	commands.wfh         = user.wfh;
   //	commands.notWfh      = user.notWfh;
-  //	commands.set         = response.store;
-  //	commands.addKey      = response.addKey;
-  //	commands.addResponse = response.addResponse;
-  //	commands.help        = help.get;
-  //	commands.addHelp     = help.store;
+  commands.set         = response.store;
+  commands.addKey      = response.addKey;
+  commands.addResponse = response.addResponse;
+  commands.help        = help.get;
+  commands.addHelp     = help.store;
 
   /* Stand Alones */
 
