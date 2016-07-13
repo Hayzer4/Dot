@@ -52,6 +52,9 @@ bot.on('message', function (from, to, text, message) {
 
   if (resp) {
     bot.say(sendTo, resp);
+    if (resp === '*BANG!*') {
+      bot.say(sendTo, '.timeout ' + from + ' 30');
+    }
   }
 });
 

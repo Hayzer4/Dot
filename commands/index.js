@@ -14,7 +14,6 @@ var help           = hotload('../modules/help').actions;
 var roulette       = hotload('./roulette');
 var eightball      = hotload('./8ball');
 var randomemote    = hotload('./randomemote');
-var colour         = hotload('../colour');
 var response       = hotload('../responses').actions;
 var config = require('../setup/config');
 

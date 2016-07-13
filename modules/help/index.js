@@ -1,7 +1,7 @@
 'use strict';
-var hotload = require("hotload");
+var hotload = require('hotload');
 
-(function(help) {
+(function (help) {
     help.actions = hotload('./actions');
     help.routes = hotload('./routes');
-})(module.exports);
+  })(module.exports);
