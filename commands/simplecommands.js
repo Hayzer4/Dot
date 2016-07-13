@@ -43,7 +43,7 @@
   };
 
   actions.eccies = function () {
-    return 'What does eccies even mean?';
+    return 'What does eccies even mean? Try !points lad / ladette';
   };
 
   actions.godrequest = function () {
