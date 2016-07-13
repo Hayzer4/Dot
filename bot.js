@@ -80,25 +80,3 @@ bot.on('names', function (channel, nicks) {
 bot.on('error', function (message) {
     console.log('error: ', message);
   });
-
-// function loadJSON(file, callback) {
-//   var xobj = new XMLHttpRequest();
-//   // xobj.overrideMimeType('application/json');
-//   xobj.open('GET', file, true);
-//   xobj.onreadystatechange = function () {
-//       if (xobj.readyState == 4 && xobj.status == "200") {
-//         callback(xobj.responseText);
-//       }
-//     };
-//
-//   xobj.send(null);
-// }
-//
-// function load() {
-//   loadJSON('global_emotes.json', function (response) {
-//     var actualJSON = JSON.parse(response);
-//     console.log(actualJSON);
-//     return actualJSON;
-//   });
-//
-//}
