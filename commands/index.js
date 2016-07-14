@@ -16,7 +16,7 @@ var eightball      = hotload('./8ball');
 var randomemote    = hotload('./randomemote');
 var response       = hotload('../responses').actions;
 var simplecommands = hotload('./simplecommands');
-var quotes       = hotload('./quotes');
+var quotes         = hotload('./quotes');
 var config = require('../setup/config');
 
 (function (commands) {
@@ -114,6 +114,7 @@ var config = require('../setup/config');
   commands.help        = help.get;
   commands.addHelp     = help.store;
   commands.addquote    = quotes.newquote;
+  commands.randomquote = quotes.findrandomquote;
 
   /* Stand Alones */
 
