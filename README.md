@@ -72,6 +72,8 @@ IRC Bot in Node with MongoDB, changed to work specifically on Twitch.
 
 To run the bot you will need Node.js, MongoDB and all the dependencies for the bot which can be installed through NPM.
 
+If you have problems with the bson module, see http://stackoverflow.com/questions/28651028/cannot-find-module-build-release-bson-code-module-not-found-js-bson
+
 #Example config
 Config lives in setup/config.json.
 config.json is in the .gitignore file for this project.

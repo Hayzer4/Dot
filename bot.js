@@ -13,7 +13,6 @@ var setup          = require('./setup/express')(app, config.secret);
 var server         = require('http').createServer(app);
 var routes         = require('./routes')(app);
 var twitterStreams = require('./modules/twitterStreams/');
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 server.listen(config.httpPort);
 
 var bot = new irc.Client(config.server, config.name, config);
