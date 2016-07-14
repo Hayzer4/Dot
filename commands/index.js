@@ -89,6 +89,7 @@ var config = require('../setup/config');
   commands.eccies      = simplecommands.eccies;
   commands.godrequest  = simplecommands.godrequest;
   commands.donate      = simplecommands.donate;
+  commands.withagun    = simplecommands.withagun;
 
   /* Core Commands */
 

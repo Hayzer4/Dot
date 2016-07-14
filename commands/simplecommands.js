@@ -10,7 +10,16 @@
     return eval(split.splice(1).join(''));
   };
 
-  actions.hayzer = function() {
+  actions.withagun = function (bot, from, to, text, split) {
+    var toReturn = '';
+    for (var i = 1; i < split.length; i++) {
+      toReturn += split[i];
+    }
+
+    return toReturn + " ̿̿ ̿̿ ̿̿ ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\ ";
+  };
+
+  actions.hayzer = function () {
     return 'Ｈ Ａ Ｙ Ｚ Ｅ Ｒ';
   };
 
