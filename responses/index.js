@@ -21,7 +21,7 @@ var helper = require('../helper');
               }
             });
 
-          Response.find({ 'key': { $in : regSplit } }).lean().exec(function (err, results) {
+          Response.find({ key: { $in: regSplit } }).lean().exec(function (err, results) {
               var match = {};
               if (results && fullKey(split.join(' '), results, match)) {
                 var resp = helper.choose(match.response);
