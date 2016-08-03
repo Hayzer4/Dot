@@ -17,6 +17,7 @@ var randomemote    = hotload('./randomemote');
 var response       = hotload('../responses').actions;
 var simplecommands = hotload('./simplecommands');
 var quotes         = hotload('./quotes');
+var skipsong       = hotload('./skipsong');
 var config = require('../setup/config');
 
 (function (commands) {
@@ -115,6 +116,7 @@ var config = require('../setup/config');
   commands.addHelp     = help.store;
   commands.addquote    = quotes.newquote;
   commands.randomquote = quotes.findrandomquote;
+  commands.skip        = skipsong.skip;
 
   /* Stand Alones */
 
