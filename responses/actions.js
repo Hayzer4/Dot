@@ -11,7 +11,7 @@ var Response = require('./model');
             var responses = parse[1].split(' || ');
             var response = new Response({
               key: parse[0],
-              response: responses,
+              response: responses
             });
 
             response.save(function (err) {

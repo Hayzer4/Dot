@@ -1,5 +1,4 @@
 'use strict';
-var user = require('../modules/user').actions;
 var Response = require('./model');
 var helper = require('../helper');
 
