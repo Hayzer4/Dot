@@ -9,20 +9,20 @@ var voteStarted = null;
   actions.skip = function (bot, from, to, text, split)
   {
     console.log('Entered skip');
-    if (voteStarted == null || (Math.floor((new Date() - voteStarted) / 1000) > 30))
+    if (voteStarted == null || (Math.floor((new Date() - voteStarted) / 1000) > 60))
     {
       console.log('entered if');
       voteStarted = new Date();
       skipped = from;
       skipCount = 1;
-      return 'New vote to skip has been started. Type !skip to skip the song, vote expires in 30s.';
+      return 'New vote to skip has been started. Type !skip to skip the song, vote expires in 60s.';
     } else if (skipped.indexOf(from) > -1)
     {
       return 'You already voted ' + from + '!';
     } else {
       console.log('else');
       skipped += from;
-      skipCount ++;
+      skipCount++;
     }
 
     if (skipCount > 4)
@@ -34,7 +34,7 @@ var voteStarted = null;
       return '!songs skip';
     } else
     {
-      return 'Vote recorded ' + from;
+      return 'Vote recorded ' + from + '; ' + skipCount + ' votes recorded';
     }
   };
 })(module.exports);
