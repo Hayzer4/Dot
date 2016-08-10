@@ -35,7 +35,6 @@ var http = require('http');
       console.log('Got response: ' + res.statusCode);
       if (res.statusCode !== 200) {
         bot.emit('response', 'http://' + options.host + options.path + ' is unreachable.', sendTo);
-        return false;
       }
 
       res.on('data', function (chunk) {
@@ -46,21 +45,25 @@ var http = require('http');
       res.on('end', function () {
         response = JSON.parse(response);
         console.log(response);
-        return true;
+        if (!(response.includes('This was a successful test')))
+        {
+          smiteSession.genSession()
+              .then(function (data) {
+              console.log(data);
+              session = data;
+            }).catch(function (error) {
+              console.error(error);
+            });
+        }
       });
     }).on('error', function (e) {
         console.log('Got error: ' + e.message);
-        return false;
       });
-
-    return false;
   };
 
   actions.getRankedConqStats = function (bot, from, to, text, split, sendTo) {
     var player = null;
-    if (!actions.testSession) {
-      genSession();
-    }
+    actions.testSession(bot, from, to, text, split, sendTo);
 
     var utcTime = new moment().utc().format('YYYYMMDDHHmmss');
     var authHash = md5(config.devId + 'getplayer' + config.authKey + utcTime);
@@ -124,9 +127,8 @@ var http = require('http');
 
   actions.getGeneralStats = function (bot, from, to, text, split, sendTo) {
     var player = null;
-    if (!actions.testSession) {
-      genSession();
-    }
+    actions.testSession(bot, from, to, text, split, sendTo);
+
 
     var utcTime = new moment().utc().format('YYYYMMDDHHmmss');
     var authHash = md5(config.devId + 'getplayer' + config.authKey + utcTime);
