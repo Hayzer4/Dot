@@ -65,7 +65,9 @@ bot.on('response', function (resp, sendTo) {
   if (previousMessage[0] !== resp[0]
     || previousCommand[0] === 'ud'
     || previousCommand[0] === 'list'
-    || previousCommand[0] === 'skip') {
+    || previousCommand[0] === 'skip'
+    || previousCommand[0] === 'getRankedConqStats'
+    || previousCommand[0] === 'getGeneralStats') {
     previousCommand[0] = '';
     previousMessage[0] = resp[0];
     resp.forEach(function (string) {
