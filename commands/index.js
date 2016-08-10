@@ -74,7 +74,8 @@ var config = require('../setup/config');
   commands.wik         = wikipedia.query;
   commands.testSmite   = smite.testSession;
   commands.getPlayer   = smite.getPlayer;
-  commands.getRankedConqStats = smite.getRankedConqStats;
+  commands.leaguesConq = smite.getRankedConqStats;
+  commands.generalStats = smite.getGeneralStats;
 
   //	commands.wa          = wolf.query;
   commands.ud          = urban.query;
