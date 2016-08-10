@@ -6,7 +6,7 @@ var responses = require('../responses').routes;
 
 module.exports = function (routes) {
     routes.get('/', function (req, res) {
-      res.sendFile('C:\\Users\\paul.hay\\Documents\\Dot\\setup\\dot.jpg');
+      res.sendFile('C:\\Users\\paul\\Documents\\Dot\\setup\\dot.jpg');
     });
 
     routes.get('/users', user.get);
