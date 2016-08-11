@@ -175,10 +175,8 @@ var http = require('http');
   };
 
   function validateAPIToken() {
-    console.log('checking token validity');
     var timeNow = new moment();
     var timeAtStamp = Date.parse(session.timestamp);
-    console.log('Now: ' + timeNow + ' Created: ' + timeAtStamp);
 
     // Check here is weird because of time zones, 15 minute check
     if (((timeNow - timeAtStamp) / (1000 * 60)) > 75) {
