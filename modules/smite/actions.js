@@ -164,7 +164,7 @@ var http = require('http');
           + '.  Mastery Level: ' + response[0].MasteryLevel
           + '.  Total Worshippers: ' + response[0].Total_Worshippers
           + '.  Status: ' + response[0].Personal_Status_Message
-          + '.  Account Age: ' + Math.round((Date.now() - dateCreated) / (1000 * 60 * 60 * 24)) + ' days',
+          + '.  Account Age: ' + Math.floor((Date.now() - dateCreated) / (1000 * 60 * 60 * 24)) + ' days',
           sendTo);
         }
       });
@@ -180,7 +180,7 @@ var http = require('http');
     var timeAtStamp = Date.parse(session.timestamp);
     console.log('Now: ' + timeNow + ' Created: ' + timeAtStamp);
 
-    // Check here is weird because of time zones I guess, didn't really research it
+    // Check here is weird because of time zones, 15 minute check
     if (((timeNow - timeAtStamp) / (1000 * 60)) > 75) {
       smiteSession.genSession()
           .then(function (data) {
