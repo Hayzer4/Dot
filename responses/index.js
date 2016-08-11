@@ -8,7 +8,7 @@ var helper = require('../helper');
         || split[0] === '@hayzerbot,'
         || split[0] === 'hayzerbot'
         || split[0] === 'hayzerbot,') {
-          return 'Don\'t @ me son, you ain\'t shit';
+          return 'Don\'t @ me son, you ain\'t ****';
         } else if (split[0] === 'Gimme' && (split[1] === 'a' || split[1] === 'an')) {
           return split.splice(2).join(' ');
         } else {

@@ -13,7 +13,7 @@
   actions.withagun = function (bot, from, to, text, split) {
     var toReturn = '';
     for (var i = 1; i < split.length; i++) {
-      toReturn += split[i];
+      toReturn += split[i] + ' ';
     }
 
     return toReturn + " ̿̿ ̿̿ ̿̿ ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\ ";
