@@ -8,6 +8,7 @@ var bugReport      = hotload('../modules/bugReport').actions;
 var google         = hotload('../modules/google').actions;
 var wikipedia      = hotload('../modules/wikipedia').actions;
 var smite          = hotload('../modules/smite').actions;
+var giphy          = hotload('../modules/giphy').actions;
 
 //var wolf           = hotload('../modules/wolframAlpha').actions;
 var urban          = hotload('../modules/urban').actions;
@@ -76,6 +77,7 @@ var config = require('../setup/config');
   commands.getPlayer   = smite.getPlayer;
   commands.leaguesConq = smite.getRankedConqStats;
   commands.generalStats = smite.getGeneralStats;
+  commands.gif         = giphy.getGif;
 
   //	commands.wa          = wolf.query;
   commands.ud          = urban.query;
