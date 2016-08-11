@@ -63,7 +63,7 @@ var http = require('http');
 
   actions.getRankedConqStats = function (bot, from, to, text, split, sendTo) {
     var player = null;
-    actions.testSession(bot, from, to, text, split, sendTo);
+    validateAPIToken();
 
     var utcTime = new moment().utc().format('YYYYMMDDHHmmss');
     var authHash = md5(config.devId + 'getplayer' + config.authKey + utcTime);
@@ -88,7 +88,7 @@ var http = require('http');
         console.log(response);
         if (response[0] === undefined)
         {
-          bot.emit('response', 'Player has profile hidden', sendTo)
+          bot.emit('response', 'Player has profile hidden', sendTo);
         } else {
           tier = actions.calculateLeague(response[0].RankedConquest.Tier);
           bot.emit('response',
@@ -127,9 +127,7 @@ var http = require('http');
 
   actions.getGeneralStats = function (bot, from, to, text, split, sendTo) {
     var player = null;
-    actions.testSession(bot, from, to, text, split, sendTo);
-
-
+    validateAPIToken();
     var utcTime = new moment().utc().format('YYYYMMDDHHmmss');
     var authHash = md5(config.devId + 'getplayer' + config.authKey + utcTime);
     var options = {
@@ -175,5 +173,23 @@ var http = require('http');
       });
 
   };
+
+  function validateAPIToken() {
+    console.log('checking token validity');
+    var timeNow = new moment();
+    var timeAtStamp = Date.parse(session.timestamp);
+    console.log('Now: ' + timeNow + ' Created: ' + timeAtStamp);
+
+    // Check here is weird because of time zones I guess, didn't really research it
+    if (((timeNow - timeAtStamp) / (1000 * 60)) > 75) {
+      smiteSession.genSession()
+          .then(function (data) {
+          console.log(data);
+          session = data;
+        }).catch(function (error) {
+          console.error(error);
+        });
+    }
+  }
 
 })(module.exports);
