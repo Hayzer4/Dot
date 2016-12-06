@@ -25,7 +25,7 @@ var voteStarted = null;
       skipCount++;
     }
 
-    if (skipCount > 4)
+    if (skipCount > 6)
     {
       console.log('2nd if');
       skipped = [];

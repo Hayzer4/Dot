@@ -28,7 +28,7 @@
   };
 
   actions.twitter = function () {
-    return 'Yo check out dese hot tweets https://www.twitter.com/SmiteHayzer';
+    return 'Yo check out dese hot tweets https://www.twitter.com/ObeyHayzer';
   };
 
   actions.smite = function () {
